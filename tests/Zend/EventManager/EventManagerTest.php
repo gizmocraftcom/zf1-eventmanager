@@ -19,15 +19,16 @@
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
+use PHPUnit\Framework\Attributes\Group;
 
 /**
  * @category   Zend
  * @package    Zend_EventManager
  * @subpackage UnitTests
- * @group      Zend_EventManager
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
+#[Group('Zend_EventManager')]
 class Zend_EventManager_EventManagerTest extends PHPUnit\Framework\TestCase
 {
     protected $message;
@@ -550,9 +551,7 @@ class Zend_EventManager_EventManagerTest extends PHPUnit\Framework\TestCase
         }
     }
 
-    /**
-     * @group ZF-12185
-     */
+    #[Group('ZF-12185')]
     public function testInvalidArgumentExceptionCanBeThrown()
     {
         $this->expectException(\Zend_EventManager_Exception_InvalidArgumentException::class);

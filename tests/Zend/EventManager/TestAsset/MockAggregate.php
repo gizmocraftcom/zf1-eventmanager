@@ -19,15 +19,16 @@
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
+use PHPUnit\Framework\Attributes\Group;
 
 /**
  * @category   Zend
  * @package    Zend_EventManager
  * @subpackage UnitTests
- * @group      Zend_EventManager
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
+#[Group('Zend_EventManager')]
 class Zend_EventManager_TestAsset_MockAggregate implements Zend_EventManager_ListenerAggregate
 {
     protected $listeners = array();
@@ -41,14 +42,14 @@ class Zend_EventManager_TestAsset_MockAggregate implements Zend_EventManager_Lis
         $listeners[] = $events->attach('foo.bar', array( $this, 'fooBar' ));
         $listeners[] = $events->attach('foo.baz', array( $this, 'fooBaz' ));
 
-        $this->listeners[ spl_object_hash($events) ] = $listeners;
+        $this->listeners[ spl_object_id($events) ] = $listeners;
 
         return __METHOD__;
     }
 
     public function detach(Zend_EventManager_EventCollection $events)
     {
-        foreach ($this->listeners[ spl_object_hash($events) ] as $listener) {
+        foreach ($this->listeners[ spl_object_id($events) ] as $listener) {
             $events->detach($listener);
         }
 

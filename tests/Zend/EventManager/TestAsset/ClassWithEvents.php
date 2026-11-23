@@ -19,15 +19,16 @@
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
+use PHPUnit\Framework\Attributes\Group;
 
 /**
  * @category   Zend
  * @package    Zend_EventManager
  * @subpackage UnitTests
- * @group      Zend_EventManager
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
+#[Group('Zend_EventManager')]
 class Zend_EventManager_TestAsset_ClassWithEvents
 {
     protected $events;
