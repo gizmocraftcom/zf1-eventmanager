@@ -60,7 +60,7 @@ class Zend_EventManager_Filter_FilterIterator extends Zend_Stdlib_SplPriorityQue
      */
     public function remove($datum)
     {
-        $this->setExtractFlags(self::EXTR_BOTH);
+        $this->setExtractFlags(SplPriorityQueue::EXTR_BOTH);
 
         // Iterate and remove any matches
         $removed = false;
@@ -80,7 +80,7 @@ class Zend_EventManager_Filter_FilterIterator extends Zend_Stdlib_SplPriorityQue
             $this->insert($item['data'], $item['priority']);
         }
 
-        $this->setExtractFlags(self::EXTR_DATA);
+        $this->setExtractFlags(SplPriorityQueue::EXTR_DATA);
         return $removed;
     }
 
